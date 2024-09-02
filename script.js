@@ -1,105 +1,107 @@
-'use strict';
+"use strict";
 
-// VARIABLEN
+// Variables
 
-const dogsDeck = [{
-        name: 'dog01',
-        img: 'img/dog01.jpg',
-    },
-    {
-        name: 'dog02',
-        img: 'img/dog02.jpg',
-    },
-    {
-        name: 'dog03',
-        img: 'img/dog03.jpg',
-    },
-    {
-        name: 'dog04',
-        img: 'img/dog04.jpg',
-    },
-    {
-        name: 'dog05',
-        img: 'img/dog05.jpg',
-    },
-    {
-        name: 'dog06',
-        img: 'img/dog06.jpg',
-    },
-    {
-        name: 'dog07',
-        img: 'img/dog07.jpg',
-    },
-    {
-        name: 'dog08',
-        img: 'img/dog08.jpg',
-    },
-    {
-        name: 'dog09',
-        img: 'img/dog09.jpg',
-    },
-    {
-        name: 'dog10',
-        img: 'img/dog10.jpg',
-    },
-    {
-        name: 'dog11',
-        img: 'img/dog11.jpg',
-    },
-    {
-        name: 'dog12',
-        img: 'img/dog12.jpg',
-    },
+const dogsDeck = [
+  {
+    name: "dog01",
+    img: "img/dog01.jpg",
+  },
+  {
+    name: "dog02",
+    img: "img/dog02.jpg",
+  },
+  {
+    name: "dog03",
+    img: "img/dog03.jpg",
+  },
+  {
+    name: "dog04",
+    img: "img/dog04.jpg",
+  },
+  {
+    name: "dog05",
+    img: "img/dog05.jpg",
+  },
+  {
+    name: "dog06",
+    img: "img/dog06.jpg",
+  },
+  {
+    name: "dog07",
+    img: "img/dog07.jpg",
+  },
+  {
+    name: "dog08",
+    img: "img/dog08.jpg",
+  },
+  {
+    name: "dog09",
+    img: "img/dog09.jpg",
+  },
+  {
+    name: "dog10",
+    img: "img/dog10.jpg",
+  },
+  {
+    name: "dog11",
+    img: "img/dog11.jpg",
+  },
+  {
+    name: "dog12",
+    img: "img/dog12.jpg",
+  },
 ];
 
-const catsDeck = [{
-        name: 'cat01',
-        img: 'img/cat01.jpg',
-    },
-    {
-        name: 'cat02',
-        img: 'img/cat02.jpg',
-    },
-    {
-        name: 'cat03',
-        img: 'img/cat03.jpg',
-    },
-    {
-        name: 'cat04',
-        img: 'img/cat04.jpg',
-    },
-    {
-        name: 'cat05',
-        img: 'img/cat05.jpg',
-    },
-    {
-        name: 'cat06',
-        img: 'img/cat06.jpg',
-    },
-    {
-        name: 'cat07',
-        img: 'img/cat07.jpg',
-    },
-    {
-        name: 'cat08',
-        img: 'img/cat08.jpg',
-    },
-    {
-        name: 'cat09',
-        img: 'img/cat09.jpg',
-    },
-    {
-        name: 'cat10',
-        img: 'img/cat10.jpg',
-    },
-    {
-        name: 'cat11',
-        img: 'img/cat11.jpg',
-    },
-    {
-        name: 'cat12',
-        img: 'img/cat12.jpg',
-    },
+const catsDeck = [
+  {
+    name: "cat01",
+    img: "img/cat01.jpg",
+  },
+  {
+    name: "cat02",
+    img: "img/cat02.jpg",
+  },
+  {
+    name: "cat03",
+    img: "img/cat03.jpg",
+  },
+  {
+    name: "cat04",
+    img: "img/cat04.jpg",
+  },
+  {
+    name: "cat05",
+    img: "img/cat05.jpg",
+  },
+  {
+    name: "cat06",
+    img: "img/cat06.jpg",
+  },
+  {
+    name: "cat07",
+    img: "img/cat07.jpg",
+  },
+  {
+    name: "cat08",
+    img: "img/cat08.jpg",
+  },
+  {
+    name: "cat09",
+    img: "img/cat09.jpg",
+  },
+  {
+    name: "cat10",
+    img: "img/cat10.jpg",
+  },
+  {
+    name: "cat11",
+    img: "img/cat11.jpg",
+  },
+  {
+    name: "cat12",
+    img: "img/cat12.jpg",
+  },
 ];
 
 const decks = [dogsDeck, catsDeck];
@@ -114,190 +116,193 @@ let highScore = 0;
 let timer;
 let timeAlert;
 
-
-// FUNKTIONEN
+// Functions
 
 const init = () => {
-    // Bei Klick auf ein Thema im Auswahl Pop-up wird deck das entsprechende Array aus decks zugewiesen.
-    const dogs = document.querySelector("#dogs");
-    dogs.addEventListener('click', function () {
-        deck = decks[0];
-        // deckselection wird die Klasse hidepopup hinzugefügt -> Das Pop-up verschwindet, startGame wird ausgeführt.
-        document.getElementById('deckselection').classList.add('hidepopup');
-        startGame();
-    });
-    const cats = document.querySelector("#cats");
-    cats.addEventListener('click', function () {
-        deck = decks[1];
-        document.getElementById('deckselection').classList.add('hidepopup');
-        startGame();
-    });
-}
+  // Assign the selected deck of cards to 'deck'
+  const dogs = document.querySelector("#dogs");
+  dogs.addEventListener("click", function () {
+    deck = decks[0];
+    // Hide selection pop-up and start game
+    document.getElementById("deckselection").classList.add("hidepopup");
+    startGame();
+  });
+  const cats = document.querySelector("#cats");
+  cats.addEventListener("click", function () {
+    deck = decks[1];
+    document.getElementById("deckselection").classList.add("hidepopup");
+    startGame();
+  });
+};
 
 const startGame = () => {
-    // Beim (erneuten) Start des Spiels, wird die Klasse card entfernt -> alle vorherigen Karten werden gelöscht.
-    document.querySelectorAll('.card').forEach((el) => {
-        el.remove();
-    })
-    // Alles wird auf 0 zurückgesetzt, congrats wird die Klasse hidepopup hinzugefügt -> Das Glückwunsch Pop-up verschwindet.
-    document.getElementById('counter').textContent = `Versuche: 0`;
-    document.getElementById('timer').textContent = `Zeit: 00:00`;
-    document.getElementById('congrats').classList.add('hidepopup');
-    numberOfSeconds = 0;
-    numberOfTries = 0;
-    numberOfMatches = 0;
-    score = 0;
-    timer = 0;
+  // Reset when (re)starting the game.
+  document.querySelectorAll(".card").forEach((el) => {
+    el.remove();
+  });
+  document.getElementById("counter").textContent = `Versuche: 0`;
+  document.getElementById("timer").textContent = `Zeit: 00:00`;
+  document.getElementById("congrats").classList.add("hidepopup");
+  numberOfSeconds = 0;
+  numberOfTries = 0;
+  numberOfMatches = 0;
+  score = 0;
+  timer = 0;
 
-    // Highscore wird geladen und im div mit der id higscore ausgegeben. Wenn (noch) kein Highscore gespeichert wurde, wird 0 ausgegeben.
-    const scoreStr = localStorage.getItem('highScore');
-    if (scoreStr == null) {
-        highScore = 0;
-    } else {
-        highScore = scoreStr;
-    }
-    document.getElementById('highscore').textContent = `Highscore: ${highScore}`;
+  // Load and display high score
+  const scoreStr = localStorage.getItem("highScore");
+  if (scoreStr == null) {
+    highScore = 0;
+  } else {
+    highScore = scoreStr;
+  }
+  document.getElementById("highscore").textContent = `Highscore: ${highScore}`;
 
-    // Neues Array aus Verknüpfung von deck Array und deck Array (concat = concatenate = verknüpfen) -> Motive werden verdoppelt.
-    const deckDoubled = deck.concat(deck);
+  // Create new array with duplicate motifs
+  const deckDoubled = deck.concat(deck);
 
-    // Zufällige Sortierung des Arrays -> Karten werden gemischt.
-    deckDoubled.sort(() => Math.random() - 0.5);
+  // Shuffle cards (random sorting)
+  deckDoubled.sort(() => Math.random() - 0.5);
 
-    // Ausführung der Funktion initCard für jedes Element im deckDoubled Array.
-    deckDoubled.forEach((item) => {
-        initCard(item);
-    });
-}
+  // Execute the 'initCard' function for each element in the deckDoubled array.
+  deckDoubled.forEach((item) => {
+    initCard(item);
+  });
+};
 
 const initCard = (item) => {
-    const game = document.querySelector('#game');
+  const game = document.querySelector("#game");
 
-    // Erstellung eines divs mit der Klasse card.
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.dataset.name = item.name;
+  // Create div with 'card' class and data-name attribute
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.dataset.name = item.name;
 
-    // Erstellung eines divs mit der Klasse hidden für verdeckte Karten.
-    const hidden = document.createElement('div');
-    hidden.classList.add('hidden');
-    //hidden.textContent = item.name; // Für Testzwecke
+  // Create div with 'hidden' class for hidden cards
+  const hidden = document.createElement("div");
+  hidden.classList.add("hidden");
+  //hidden.textContent = item.name; // For testing
 
-    // Erstellung eines divs mit der Klasse open für aufgedeckte Karten.
-    const open = document.createElement('div');
-    open.classList.add('open');
-    open.style.backgroundImage = `url(${item.img})`;
+  // Create div with 'open' class and inline style for motif
+  const open = document.createElement("div");
+  open.classList.add("open");
+  open.style.backgroundImage = `url(${item.img})`;
 
-    // Anhängen von card an game und hidden und open an card.
-    game.appendChild(card);
-    card.appendChild(hidden);
-    card.appendChild(open);
+  // Attach the created divs
+  game.appendChild(card);
+  card.appendChild(hidden);
+  card.appendChild(open);
 
-    // Bei Klick auf eine Karte wird onClickCard ausgeführt.
-    card.addEventListener('click', onClickCard);
-}
+  // Execute 'onClickCard' when clicking on a card
+  card.addEventListener("click", onClickCard);
+};
 
-// Sobald die erste Karte angeklickt wird, wird startTimer ausgeführt.
+// Start timer when clicking on a card
 const onClickCard = (evt) => {
-    if (!timer) {
-        startTimer();
-    }
-    // Wenn die Karte bereits die Klasse selected enthält, kann sie nicht nochmal angeklickt werden. -> Verhindert Match mit derselben Karte.
-    const card = evt.currentTarget;
-    if (card.classList.contains('selected')) {
-        return
-    }
-    // Bei der Auswahl von höchstes 2 Karten, wird card die Klasse selected hinzugefügt. -> Die Karte wird umgedreht.
-    if (selectedCards.length < 2) {
-        card.classList.add('selected');
-        // Um zu erkennen welche Karten ausgewählt wurden, wird der Name angefügt.
-        selectedCards.push(card.dataset.name);
-    }
-    // Wenn zwei Karten angeklickt wurden, wird je ein Versuch mehr im div mit der id counter ausgegeben und checkforMatch wird ausgeführt.
-    if (selectedCards.length === 2) {
-        numberOfTries++;
-        document.getElementById('counter').textContent = `Versuche: ${numberOfTries}`;
-        checkForMatch();
-    }
-}
+  if (!timer) {
+    startTimer();
+  }
+  // Return if card already contains class 'selected' to prevent matching with the same card
+  const card = evt.currentTarget;
+  if (card.classList.contains("selected")) {
+    return;
+  }
+  // Add the class 'selected' when a maximum of 2 cards are selected (card is turned over)
+  if (selectedCards.length < 2) {
+    card.classList.add("selected");
+    // Add name to recognize which cards were selected
+    selectedCards.push(card.dataset.name);
+  }
+  // If two cards have been clicked, increase number of attempts by 1 and execute 'checkOfMatch'.
+  if (selectedCards.length === 2) {
+    numberOfTries++;
+    document.getElementById(
+      "counter"
+    ).textContent = `Versuche: ${numberOfTries}`;
+    checkForMatch();
+  }
+};
 
 const startTimer = () => {
-    timer = setInterval(() => {
-        // Die Sekunden werden im Interval von einer Sekunde hochgezählt.
-        numberOfSeconds++;
-        // Die Sekunden werden in Minuten und Sekunden umgerechnet.
-        const minutes = Math.floor(numberOfSeconds / 60);
-        const seconds = numberOfSeconds % 60;
-        // Minuten und Sekunden sollen 2 Zeichen enthalten, Zahlen < 10 werden mit 0 aufgefüllt. -> = 01:01 statt 1:1
-        const formattedMinutes = minutes.toString().padStart(2, '0'); // Mit padStart lässt sich ein String von links mit Zeichen auffüllen. 
-        const formattedSeconds = seconds.toString().padStart(2, '0');
+  timer = setInterval(() => {
+    // Count up number of seconds at intervals of 1 second
+    numberOfSeconds++;
+    // Convert the number of seconds into minutes
+    const minutes = Math.floor(numberOfSeconds / 60);
+    const seconds = numberOfSeconds % 60;
+    // Reformat minutes and seconds so that they contain two characters and numbers under 10 are padded with 0 (01:01 instead of 1:1)
+    const formattedMinutes = minutes.toString().padStart(2, "0"); // 'padStart' can be used to fill a string with characters from the left
+    const formattedSeconds = seconds.toString().padStart(2, "0");
 
-        // Timer wird im div mit der id timer ausgegeben.
-        document.getElementById('timer').textContent = `Zeit: ${formattedMinutes}:${formattedSeconds}`;
-        // Gestoppte Zeit wird im Glückwunsch Pop-up ausgegeben.
-        timeAlert = `${minutes} Min. und ${seconds} Sek.`;
-    }, 1000);
-}
+    // Output timer in timer div
+    document.getElementById(
+      "timer"
+    ).textContent = `Zeit: ${formattedMinutes}:${formattedSeconds}`;
+    // Output stopped time in congratulations pop-up
+    timeAlert = `${minutes} Min. und ${seconds} Sek.`;
+  }, 1000);
+};
 
-// Ausgewählte Karten werden zurückgesetzt -> Es können wieder zwei Karten ausgewählt werden.
+// Empty 'selectedCards' array so that a new pair of cards can be selected
 const resetSelectedCards = () => {
-    selectedCards = [];
-}
+  selectedCards = [];
+};
 
 const checkForMatch = () => {
-    // Wenn die ausgewählten Karten übereinstimmen, wird nach 0,3 sec die Klasse matched hinzugefügt und resetSelectedCards ausgeführt.
-    if (selectedCards[0] === selectedCards[1]) {
-        const name = selectedCards[0];
-        setTimeout(() => {
-            const matchedCardsSelector = `.card[data-name="${name}"]`;
-            document.querySelectorAll(matchedCardsSelector).forEach((card) => {
-                card.classList.add('matched');
-                resetSelectedCards();
-            })
-        }, 300)
-        // Die Matches werden jeweils um 1 hochgezählt.
-        numberOfMatches += 1;
-        // Wenn alle Matches gefunden wurden, wird stopGame ausgeführt.
-        if (numberOfMatches === 12) {
-            stopGame();
-        }
-        // Wenn die Karten nicht übereinstimmen, wird nach 0,8 sec die Klasse selected entfernt und resetSelectedCards ausgeführt. 
-    } else {
-        setTimeout(() => {
-            document.querySelectorAll('.card').forEach((card) => {
-                card.classList.remove('selected');
-                resetSelectedCards();
-            })
-        }, 800)
+  // If selected cards match, add class 'matched' after 0.3 seconds and execute 'resetSelectedCards'
+  if (selectedCards[0] === selectedCards[1]) {
+    const name = selectedCards[0];
+    setTimeout(() => {
+      const matchedCardsSelector = `.card[data-name="${name}"]`;
+      document.querySelectorAll(matchedCardsSelector).forEach((card) => {
+        card.classList.add("matched");
+        resetSelectedCards();
+      });
+    }, 300);
+    // Increase number of matched by 1
+    numberOfMatches++;
+    // Execute 'stopGame' when all matching pairs where found
+    if (numberOfMatches === 12) {
+      stopGame();
     }
-}
+    // If cards do not match, remove 'selected' class after 0.8 seconds and execute 'resetSelectedCards'
+  } else {
+    setTimeout(() => {
+      document.querySelectorAll(".card").forEach((card) => {
+        card.classList.remove("selected");
+        resetSelectedCards();
+      });
+    }, 800);
+  }
+};
 
 const stopGame = () => {
-    // Die Zeit wird angehalten.
-    clearInterval(timer);
+  // Stop timer
+  clearInterval(timer);
 
-    // Berechnung der Punktzahl (Höchste erreichbare Punktzahl: 1000)
-    score = Math.floor(120 / numberOfTries * 100);
-    // Ist die aktuelle Punktzahl höher als der aktuelle Highscore, wird sie als neuer Highscore im Local Storage gespeichert.
-    if (score > highScore) {
-        highScore = score;
-        localStorage.setItem('highScore', score);
-    }
+  // Calculate score (highest achievable score: 1000)
+  score = Math.floor((120 / numberOfTries) * 100);
+  // If current score is higher than current high score, save it as new high score
+  if (score > highScore) {
+    highScore = score;
+    localStorage.setItem("highScore", score);
+  }
 
-    // Glückwunsch Pop-up erscheint nach 0,9 sec.
-    setTimeout(() => {
-        document.getElementById('congrats').classList.remove('hidepopup');
-        document.getElementById('result').textContent = `Du hast alle Paare in ${timeAlert} gefunden und ${numberOfTries} Versuche gebraucht. Dafür gibt es ${score} Punkte!`;
-    }, 900)
+  // Show congratulations pop-up after 0.9 seconds
+  setTimeout(() => {
+    document.getElementById("congrats").classList.remove("hidepopup");
+    document.getElementById(
+      "result"
+    ).textContent = `Du hast alle Paare in ${timeAlert} gefunden und ${numberOfTries} Versuche gebraucht. Dafür gibt es ${score} Punkte!`;
+  }, 900);
 
-    // Bei Klick auf "Nochmal spielen" wird die Klasse hidepopup congrats hinzugefügt und bei deckselection entfernt.
-    // -> Das Glückwunsch Pop-up verschwindet, das Kartendeck Auswahl Pop-up erscheint, init wird ausgeführt.
-    const newGame = document.querySelector("#newgame");
-    newGame.addEventListener('click', function () {
-        document.getElementById('congrats').classList.add('hidepopup');
-        document.getElementById('deckselection').classList.remove('hidepopup');
-        init();
-    });
-}
+  // When 'play again' is clicked, hide congratulations pop-up and show card deck selection pop-up
+  const newGame = document.querySelector("#newgame");
+  newGame.addEventListener("click", function () {
+    document.getElementById("congrats").classList.add("hidepopup");
+    document.getElementById("deckselection").classList.remove("hidepopup");
+    init();
+  });
+};
 
 init();
