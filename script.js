@@ -239,7 +239,7 @@ const startTimer = () => {
       "timer"
     ).textContent = `Zeit: ${formattedMinutes}:${formattedSeconds}`;
     // Output stopped time in congratulations pop-up
-    timeAlert = `${minutes} Min. und ${seconds} Sek.`;
+    timeAlert = `${minutes} min. and ${seconds} sec.`;
   }, 1000);
 };
 
@@ -293,7 +293,7 @@ const stopGame = () => {
     document.getElementById("congrats").classList.remove("hidepopup");
     document.getElementById(
       "result"
-    ).textContent = `Du hast alle Paare in ${timeAlert} gefunden und ${numberOfTries} Versuche gebraucht. Dafür gibt es ${score} Punkte!`;
+    ).textContent = `You found all the pairs in ${timeAlert} and used ${numberOfTries} attempts. For that, you earn ${score} points!`;
   }, 900);
 
   // When 'play again' is clicked, hide congratulations pop-up and show card deck selection pop-up
