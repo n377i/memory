@@ -259,7 +259,7 @@ const checkForMatch = () => {
         resetSelectedCards();
       });
     }, 300);
-    // Increase number of matched by 1
+    // Increase number of matches by 1
     numberOfMatches++;
     // Execute 'stopGame' when all matching pairs where found
     if (numberOfMatches === 12) {
