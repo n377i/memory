@@ -7,28 +7,32 @@
 body {
   padding: 1em;
   background: #fff;
-  background: radial-gradient(circle farthest-corner at center center, #fff 30%, #f2f2f2 70%);
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #fff 30%,
+    #f2f2f2 70%
+  );
 }
 
 h1 {
-  font-family: 'Bungee Hairline', cursive;
+  font-family: "Bungee Hairline", cursive;
   font-size: 3.4em;
   color: #222;
   text-align: center;
 }
 
 h2 {
-  font-family: 'Bungee', sans-serif;
+  font-family: "Bungee", sans-serif;
   font-size: 2.4em;
   color: #0096c9;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  line-height: 2.0em;
+  line-height: 2em;
 }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 1.6em;
   color: #0096c9;
@@ -42,7 +46,7 @@ h3 {
 #cats,
 #newgame,
 #result {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
@@ -50,8 +54,7 @@ section {
   max-width: 1010px;
 }
 
-
-/* SPIELSTAND */
+/* Game State */
 
 #score {
   display: flex;
@@ -75,8 +78,7 @@ section {
   text-align: right;
 }
 
-
-/* SPIELFELD */
+/* Play Field */
 
 #game {
   width: 100%;
@@ -89,7 +91,7 @@ section {
 
 .card {
   position: relative;
-  transition: all .4s linear;
+  transition: all 0.4s linear;
   transform-style: preserve-3d;
   cursor: pointer;
 }
@@ -100,7 +102,7 @@ section {
   height: 160px;
   width: 160px;
   border-radius: 6px;
-  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.06)
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.06);
 }
 
 .open,
@@ -110,7 +112,7 @@ section {
 }
 
 .hidden {
-  background: #0096c9 url('./img/hidden.jpg') no-repeat center center / contain;
+  background: #0096c9 url("./img/hidden.jpg") no-repeat center center / contain;
 }
 
 .open {
@@ -126,8 +128,7 @@ section {
   visibility: hidden;
 }
 
-
-/* POP-UPS*/
+/* Pop-ups*/
 
 #deckselection,
 #congrats {
@@ -159,7 +160,7 @@ section {
   margin: 10px 0 12px 0;
   font-size: 1.12em;
   font-weight: bold;
-  color: #0096c9;;
+  color: #0096c9;
   text-decoration: none;
   text-align: center;
   padding: 10px 20px;
@@ -185,4 +186,3 @@ section {
 .hidepopup {
   display: none !important;
 }
-
