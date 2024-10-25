@@ -121,7 +121,38 @@ section {
 }
 
 .selected {
-  transform: rotateY(180deg);
+  -webkit-animation: flip-animation 0.4s linear both;
+  animation: flip-animation 0.4s linear both;
+  z-index: 1;
+}
+
+@-webkit-keyframes flip-animation {
+  0% {
+    -webkit-transform: scale(1) rotateY(0);
+    transform: scale(1) rotateY(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateY(90deg);
+    transform: scale(2) rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(180deg);
+    transform: scale(1) rotateY(180deg);
+  }
+}
+@keyframes flip-animation {
+  0% {
+    -webkit-transform: scale(1) rotateY(0);
+    transform: scale(1) rotateY(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateY(90deg);
+    transform: scale(2) rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(180deg);
+    transform: scale(1) rotateY(180deg);
+  }
 }
 
 .matched {
